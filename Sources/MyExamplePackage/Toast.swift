@@ -1,6 +1,6 @@
 import SwiftUI
 
-public struct NewToastView: View {
+public struct ToastView: View {
     
     @Binding var show: Bool
     let message: String

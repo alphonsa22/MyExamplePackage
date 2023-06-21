@@ -7,7 +7,7 @@
 
 import SwiftUI
 
-struct ToasterView: View {
+public struct ToasterView: View {
     let message: String
     
     var body: some View {

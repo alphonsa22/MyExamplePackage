@@ -35,7 +35,7 @@ struct ContentView: View {
         .overlay(
             Group {
                 if showToast {
-                    ToastView(message: toastMessage)
+                    ToasterView(message: toastMessage)
                         .transition(.opacity)
                         .animation(.easeInOut)
                         .onAppear {

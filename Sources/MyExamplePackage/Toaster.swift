@@ -10,7 +10,7 @@ import SwiftUI
 public struct ToasterView: View {
     let message: String
     public init (message: String) {
-        self._message = message
+        self.message = message
     }
     public var body: some View {
         Text(message)

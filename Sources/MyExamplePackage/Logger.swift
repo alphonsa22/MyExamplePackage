@@ -35,7 +35,7 @@ public struct Logger {
     public static func log(_ message: String, level: LogLevel, file: String = #file, function: String = #function, line: Int = #line) {
         if level.rawValue >= logLevel.rawValue {
             let logMessage = formatLogMessage(message, level: level, file: file, function: function, line: line)
-            
+            print(logMessage)
             DispatchQueue.main.async {
                 showLogAsToast(logMessage)
             }

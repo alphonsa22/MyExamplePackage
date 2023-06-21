@@ -10,7 +10,7 @@ import SwiftUI
 public struct ToasterView: View {
     let message: String
     
-    var body: some View {
+    public var body: some View {
         Text(message)
             .foregroundColor(.white)
             .padding()

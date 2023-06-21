@@ -16,6 +16,12 @@ public enum LogLevel: Int {
     case error
 }
 
+public enum LogFormat {
+    case standard
+    case simple
+    case custom(String)
+}
+
 public struct Logger {
     public static var logLevel: LogLevel = .debug
     public static var logFormat: LogFormat = .standard
@@ -29,7 +35,11 @@ public struct Logger {
     public static func log(_ message: String, level: LogLevel, file: String = #file, function: String = #function, line: Int = #line) {
         if level.rawValue >= logLevel.rawValue {
             let logMessage = formatLogMessage(message, level: level, file: file, function: function, line: line)
-            print(logMessage)
+            
+            DispatchQueue.main.async {
+                showLogAsToast(logMessage)
+            }
+            
             writeLogToFile(logMessage)
         }
     }
@@ -79,37 +89,15 @@ public struct Logger {
             let fileHandle = try FileHandle(forWritingTo: logFileURL)
             fileHandle.seekToEndOfFile()
             fileHandle.write(logMessage.data(using: .utf8)!)
-            fileHandle.write("\n".data(using: .utf8)!)
             fileHandle.closeFile()
         } catch {
-            print("Failed to write log to file: \(error)")
+            print("Error writing log to file: \(error)")
         }
     }
     
-    private func showLogAsToast(_ logMessage: String) {
-        let window = UIApplication.shared.windows.first { $0.isKeyWindow }
-        let toastView = ToasterView(message: logMessage)
-        let toastHostingController = UIHostingController(rootView: toastView)
-        toastHostingController.view.backgroundColor = .clear
-        toastHostingController.view.translatesAutoresizingMaskIntoConstraints = false
-        
-        window?.addSubview(toastHostingController.view)
-        NSLayoutConstraint.activate([
-            toastHostingController.view.centerXAnchor.constraint(equalTo: window!.centerXAnchor),
-            toastHostingController.view.bottomAnchor.constraint(equalTo: window!.safeAreaLayoutGuide.bottomAnchor, constant: -20)
-        ])
-        
-        DispatchQueue.main.asyncAfter(deadline: .now() + 2) {
-            toastHostingController.view.removeFromSuperview()
-        }
+    private static func showLogAsToast(_ logMessage: String) {
+        NotificationCenter.default.post(name: NSNotification.Name("ShowToast"), object: logMessage)
     }
-
-}
-
-public enum LogFormat {
-    case standard
-    case simple
-    case custom(String)
 }
 
     

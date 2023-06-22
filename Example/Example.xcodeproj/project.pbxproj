@@ -15,6 +15,7 @@
 		2E4EEAAE2A42D30000541B2E /* ExampleUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2E4EEAAD2A42D30000541B2E /* ExampleUITests.swift */; };
 		2E4EEAB02A42D30000541B2E /* ExampleUITestsLaunchTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2E4EEAAF2A42D30000541B2E /* ExampleUITestsLaunchTests.swift */; };
 		2E4EEABE2A42D32D00541B2E /* MyExamplePackage in Frameworks */ = {isa = PBXBuildFile; productRef = 2E4EEABD2A42D32D00541B2E /* MyExamplePackage */; };
+		2EE146A02A441D8200F35422 /* LoggerModel.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 2EE1469E2A441D8200F35422 /* LoggerModel.xcdatamodeld */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -45,6 +46,7 @@
 		2E4EEAA92A42D30000541B2E /* ExampleUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = ExampleUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		2E4EEAAD2A42D30000541B2E /* ExampleUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExampleUITests.swift; sourceTree = "<group>"; };
 		2E4EEAAF2A42D30000541B2E /* ExampleUITestsLaunchTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExampleUITestsLaunchTests.swift; sourceTree = "<group>"; };
+		2EE1469F2A441D8200F35422 /* LoggerModel.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = LoggerModel.xcdatamodel; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -100,6 +102,7 @@
 				2E4EEA942A42D2FB00541B2E /* ContentView.swift */,
 				2E4EEA962A42D30000541B2E /* Assets.xcassets */,
 				2E4EEA982A42D30000541B2E /* Preview Content */,
+				2EE1469E2A441D8200F35422 /* LoggerModel.xcdatamodeld */,
 			);
 			path = Example;
 			sourceTree = "<group>";
@@ -267,6 +270,7 @@
 			files = (
 				2E4EEA952A42D2FB00541B2E /* ContentView.swift in Sources */,
 				2E4EEA932A42D2FB00541B2E /* ExampleApp.swift in Sources */,
+				2EE146A02A441D8200F35422 /* LoggerModel.xcdatamodeld in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -610,6 +614,19 @@
 			productName = MyExamplePackage;
 		};
 /* End XCSwiftPackageProductDependency section */
+
+/* Begin XCVersionGroup section */
+		2EE1469E2A441D8200F35422 /* LoggerModel.xcdatamodeld */ = {
+			isa = XCVersionGroup;
+			children = (
+				2EE1469F2A441D8200F35422 /* LoggerModel.xcdatamodel */,
+			);
+			currentVersion = 2EE1469F2A441D8200F35422 /* LoggerModel.xcdatamodel */;
+			path = LoggerModel.xcdatamodeld;
+			sourceTree = "<group>";
+			versionGroupType = wrapper.xcdatamodel;
+		};
+/* End XCVersionGroup section */
 	};
 	rootObject = 2E4EEA872A42D2FB00541B2E /* Project object */;
 }

@@ -11,7 +11,7 @@ import MyExamplePackage
 struct ContentView: View {
     @State private var showToast: Bool = false
     @State private var toastMessage: String = ""
-
+    
     var body: some View {
         VStack {
             Button("Show Log") {

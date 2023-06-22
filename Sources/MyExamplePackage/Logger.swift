@@ -103,17 +103,17 @@ public struct Logger {
     
     private static func saveLogToDatabase(_ logMessage: String) {
         let context = CoreDataManager.shared.persistentContainer.viewContext
-        
-        let logEntity = LoggerEntity(context: context)
-        logEntity.timestamp = Date()
-        logEntity.logMessage = logMessage
-        
-        do {
-            try context.save()
-            print("successfully updated")
-        } catch {
-            print("Error saving log to database: \(error)")
-        }
+        print("context===",context)
+//        let logEntity = LoggerEntity(context: context)
+//        logEntity.timestamp = Date()
+//        logEntity.logMessage = logMessage
+//
+//        do {
+//            try context.save()
+//            print("successfully updated")
+//        } catch {
+//            print("Error saving log to database: \(error)")
+//        }
     }
 
 }

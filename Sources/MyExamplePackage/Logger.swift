@@ -7,6 +7,7 @@
 
 import Foundation
 import SwiftUI
+import CoreData
 
 public enum LogLevel: Int {
     case verbose
@@ -40,7 +41,8 @@ public struct Logger {
                 showLogAsToast(logMessage)
             }
             
-            writeLogToFile(logMessage)
+//            writeLogToFile(logMessage)
+            saveLogToDatabase(logMessage)
         }
     }
     
@@ -98,6 +100,22 @@ public struct Logger {
     private static func showLogAsToast(_ logMessage: String) {
         NotificationCenter.default.post(name: NSNotification.Name("ShowToast"), object: logMessage)
     }
+    
+    private static func saveLogToDatabase(_ logMessage: String) {
+        let context = CoreDataManager.shared.persistentContainer.viewContext
+        
+        let logEntity = LoggerEntity(context: context)
+        logEntity.timestamp = Date()
+        logEntity.logMessage = logMessage
+        
+        do {
+            try context.save()
+            print("successfully updated")
+        } catch {
+            print("Error saving log to database: \(error)")
+        }
+    }
+
 }
 
     
